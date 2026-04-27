@@ -1,0 +1,36 @@
+# FedSplitGAN default configuration
+# All values can be overridden via CLI flags in train.py
+
+architecture:
+  latent_dim:    128
+  conditional:   true       # set false for unconditional GAN
+  n_classes:     4          # 0=rare, 1=occasional, 2=frequent, 3=high-risk
+
+training:
+  n_rounds:      500
+  n_disc_steps:  3
+  batch_size:    16
+  lr_gen:        0.0001
+  lr_disc:       0.0002
+  betas:         [0.5, 0.999]
+  loss_mode:     hinge      # bce | hinge | wgan
+  lambda_gp:     10.0
+
+federated:
+  k_fraction:      0.1      # top-k gradient sparsification (10%)
+  noise_multiplier: 1.1     # Gaussian DP noise multiplier
+  clip_norm:       1.0      # L2 gradient clipping norm for DP
+  weighted_agg:    true     # weight by site dataset size
+
+logging:
+  log_every:   20
+  save_every:  100
+  save_dir:    checkpoints
+
+data:
+  scalogram_shape: [2, 96, 288]
+  n_scales:        96
+  min_period_min:  15.0
+  max_period_min:  1440.0
+  sampling_min:    5.0
+  max_gap_hours:   4.0
