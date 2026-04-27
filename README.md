@@ -8,7 +8,7 @@ This project implements a **Federated Split GAN (FedSplitGAN)** framework for ge
 
 A **peer-to-peer ring communication** protocol between discriminators propagates compressed gradient statistics across sites before they are aggregated at the central node, reducing communication rounds by up to ~40% compared to a star-topology federated baseline while improving generator convergence.
 
-The synthetic outputs are dual-channel CWT scalograms of shape `(96 × 288 × 2)` — the same spectral-temporal representation used in the [MAHP hypoglycemia prediction framework](https://github.com/Mahsan-a/MAHP) — making them directly compatible with downstream classifiers trained on real CGM data.
+The synthetic outputs are dual-channel CWT scalograms of shape `(96 × 288 × 2)` > the same spectral-temporal representation used in the [MAHP hypoglycemia prediction framework](https://github.com/Mahsan-a/MAHP) making them directly compatible with downstream classifiers trained on real CGM data.
 
 ---
 
