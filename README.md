@@ -14,7 +14,7 @@ The synthetic outputs are dual-channel CWT scalograms of shape `(96 × 288 × 2)
 
 ## Clinical Motivation
 
-Federated learning is particularly well-suited to clinical CGM data for two reasons. First, patient glucose records are governed by HIPAA and equivalent international frameworks, meaning centralized data pooling is often legally or institutionally infeasible. Second, the rare-event patient subgroup identified in real-world T1D cohorts contributes very few hypoglycemic examples per site — synthetic augmentation of this class, generated from the joint distribution learned across sites, directly addresses the class imbalance problem without data sharing.
+Federated learning is particularly well-suited to clinical CGM data for two reasons. First, patient glucose records are governed by HIPAA and equivalent international frameworks, meaning centralized data pooling is often legally or institutionally infeasible. Second, the rare-event patient subgroup identified in real-world T1D cohorts contributes very few hypoglycemic examples per site, synthetic augmentation of this class, generated from the joint distribution learned across sites, directly addresses the class imbalance problem without data sharing.
 
 The datasets supported by this framework include:
 
@@ -79,7 +79,7 @@ pip install -r requirements.txt
 
 ```bash
 # Prepare CGM data (computes CWT scalograms from raw glucose CSVs)
-python src/data_utils.py --data_dir /path/to/cgm_csvs --out_dir data/scalograms
+python src/data_utils.py --data/cgm_csvs path as data_dir and --data/scalograms as out_dir 
 
 # Run federated training
 python train.py --config configs/default.yaml
